@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Hanken Grotesk", sans-serif;
+
+  --color-surface: #f9f9ff;
+  --color-surface-dim: #d3daef;
+  --color-on-surface: #141b2b;
+  --color-on-surface-variant: #4a4455;
+  --color-primary: #630ed4;
+  --color-primary-container: #7c3aed;
+  --color-on-primary-container: #ede0ff;
+  --color-secondary: #6f46b9;
+  --color-secondary-container: #b188ff;
+  --color-on-secondary-container: #44118d;
+  --color-tertiary: #4f4b6c;
+  --color-outline: #7b7487;
+  --color-outline-variant: #ccc3d8;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  --spacing-unit: 4px;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1280px] mx-auto px-5 md:px-10;
+  }
+
+  .mobile-scroll-x {
+    @apply flex overflow-x-auto snap-x snap-mandatory scrollbar-none -mx-5 px-5 gap-4 lg:grid lg:overflow-visible lg:mx-0 lg:px-0;
+  }
+
+  .snap-card {
+    @apply snap-center shrink-0 w-[85%] sm:w-[450px] lg:w-full;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3.5 bg-primary text-white font-semibold rounded-2xl hover:bg-primary-container transition-all duration-300 shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transform active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3.5 bg-white text-primary border-2 border-primary/20 font-semibold rounded-2xl hover:bg-primary/5 transition-all duration-300 flex items-center justify-center gap-2 transform active:scale-[0.98];
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 md:hover:shadow-2xl md:hover:-translate-y-1.5 border border-outline-variant/10 md:hover:border-primary/20 bg-white;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
